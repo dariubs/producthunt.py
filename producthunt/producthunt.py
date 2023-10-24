@@ -50,3 +50,29 @@ class ProductHunt:
             })
         
         return product_list
+    
+    def get_product_details(self, slug):
+        query = f'''
+        query {{
+          post(slug: "{slug}") {{
+            name
+            tagline
+            description
+            website
+          }}
+        }}
+        '''
+        data = fetch_data(query, self.api_key)
+        product = data.get('data', {}).get('post', {})
+        
+        if not product:
+            return None
+
+        product_details = {
+            'Name': product.get('name'),
+            'Tagline': product.get('tagline'),
+            'Description': product.get('description'),
+            'Website': product.get('website'),
+        }
+        
+        return product_details
