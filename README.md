@@ -45,6 +45,18 @@ else:
     print("Product not found.")
 ```
 
+### Get Products by Topic
+
+Fetch products by topic:
+
+```python
+products = ph.get_products_by_topic('artificial-intelligence')
+for product in products:
+    print(f"ID: {product['ID']}")
+    print(f"Name: {product['Name']}")
+    print(f"Tagline: {product['Tagline']}")
+```
+
 ## License
 
 This project is licensed under the terms of the MIT license.
