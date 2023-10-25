@@ -1,6 +1,8 @@
 # producthunt.py
 
-Fetch daily new products and details of specific products from Product Hunt.
+[![PyPI version](https://badge.fury.io/py/producthunt.svg)](https://badge.fury.io/py/producthunt)
+
+Product Hunt API wrapper for python
 
 ## Installation
 
