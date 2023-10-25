@@ -76,3 +76,31 @@ class ProductHunt:
         }
         
         return product_details
+    
+    def get_products_by_topic(self, topic):
+        query = f'''
+        query {{
+          posts(order: NEWEST, first: 10, topic: "{topic}") {{
+            edges {{
+              node {{
+                id
+                name
+                tagline
+              }}
+            }}
+          }}
+        }}
+        '''
+        data = fetch_data(query, self.api_key)
+        products = data.get('data', {}).get('posts', {}).get('edges', [])
+        
+        product_list = []
+        for edge in products:
+            product = edge.get('node', {})
+            product_list.append({
+                'ID': product.get('id'),
+                'Name': product.get('name'),
+                'Tagline': product.get('tagline'),
+            })
+        
+        return product_list
