@@ -77,7 +77,7 @@ class ProductHunt:
         
         return product_details
     
-    def get_products_by_topic(self, topic):
+    def get_posts_by_topic(self, topic):
         query = f'''
         query {{
           posts(order: NEWEST, first: 10, topic: "{topic}") {{
