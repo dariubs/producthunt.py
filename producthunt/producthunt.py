@@ -80,7 +80,7 @@ class ProductHunt:
     def get_posts_by_topic(self, topic):
         query = f'''
         query {{
-          posts(order: NEWEST, first: 10, topic: "{topic}") {{
+          posts(order: NEWEST, first: 99, topic: "{topic}") {{
             edges {{
               node {{
                 id
