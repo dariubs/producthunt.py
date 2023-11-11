@@ -85,7 +85,14 @@ class ProductHunt:
               node {{
                 id
                 name
+                slug
                 tagline
+                description
+                website
+                url
+                thumbnail {{
+                  url  # Request the specific subfield of the thumbnail
+                }}
               }}
             }}
           }}
@@ -100,7 +107,12 @@ class ProductHunt:
             product_list.append({
                 'ID': product.get('id'),
                 'Name': product.get('name'),
+                'Slug': product.get('slug'),
                 'Tagline': product.get('tagline'),
+                'Description': product.get('description'),
+                'Website': product.get('website'),
+                'URL': product.get('url'),
+                'Thumbnail': product.get('thumbnail', {}).get('url'),
             })
         
         return product_list
