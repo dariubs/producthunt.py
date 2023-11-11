@@ -47,12 +47,12 @@ else:
     print("Product not found.")
 ```
 
-### Get Products by Topic
+### Get Posts by Topic
 
-Fetch products by topic:
+Fetch posts by topic:
 
 ```python
-products = ph.get_products_by_topic('artificial-intelligence')
+products = ph.get_posts_by_topic('artificial-intelligence')
 for product in products:
     print(f"ID: {product['ID']}")
     print(f"Name: {product['Name']}")
