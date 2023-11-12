@@ -6,8 +6,17 @@ Product Hunt API wrapper for python
 
 ## Installation
 
+You can install with pip:
+
 ```
 pip install producthunt
+```
+
+or from source code:
+
+```shell
+git clone repo
+make local
 ```
 
 ### init
