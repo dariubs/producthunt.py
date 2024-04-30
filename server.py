@@ -1,15 +1,16 @@
 from flask import Flask
 from flask import jsonify
+from producthunt import ProductHunt
+
+api_key = 'wtpXwVAiQ5gH2ahM1e9ziWe0bCuzOaqahVZfsZRaccI'
+ph = ProductHunt(api_key)
 app = Flask(__name__)
 
 
-
-@app.route('/change/<dollar>/<cents>')
-def changeroute(dollar, cents):
-    print(f"Make Change for {dollar}.{cents}")
-    amount = f"{dollar}.{cents}"
-    result = change(float(amount))
-    return jsonify(result)
+@app.route('/product-details')
+def get_product_details():
+    data = ph.get_product_details(slug='product')
+    return jsonify(data)
 
 
 
