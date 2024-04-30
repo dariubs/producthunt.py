@@ -2,7 +2,7 @@ from flask import Flask
 from flask import jsonify
 from producthunt import ProductHunt
 
-api_key = 'wtpXwVAiQ5gH2ahM1e9ziWe0bCuzOaqahVZfsZRaccI'
+api_key = ''
 ph = ProductHunt(api_key)
 app = Flask(__name__)
 
@@ -10,6 +10,12 @@ app = Flask(__name__)
 @app.route('/product-details')
 def get_product_details():
     data = ph.get_product_details(slug='product')
+    return jsonify(data)
+
+
+@app.route('/get-daily')
+def get_daily():
+    data = ph.get_daily()
     return jsonify(data)
 
 
