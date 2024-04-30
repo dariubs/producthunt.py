@@ -2,7 +2,7 @@ from flask import Flask
 from flask import jsonify
 from producthunt import ProductHunt
 
-api_key = ''
+api_key = 'product-hunt-token'
 ph = ProductHunt(api_key)
 app = Flask(__name__)
 
