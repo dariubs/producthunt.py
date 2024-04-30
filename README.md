@@ -68,6 +68,43 @@ for product in products:
     print(f"Tagline: {product['Tagline']}")
 ```
 
+
+
+## Run it on Docker
+- You can also clone the project and run it with docker exposing the function calls implemented as REST API endpoints. To do that follow these commands:
+
+```
+git clone https://github.com/dariubs/producthunt.py.git
+
+```
+
+- Add your API token that you get from ProductHunt
+```
+cd producthunt.py
+
+open a file server.py then add it => api_key = 'product-hunt-token'
+
+```
+
+- Then build and run your docker container
+
+```
+cd producthunt.py
+
+docker-compose up --build
+
+```
+
+- It will build and run the container on  `http://localhost:8000`. Endpoints are named based on the current implemented funtions:
+
+```
+/get-daily
+/product-details
+/get-posts-by-topic
+
+```
+
+
 ## License
 
 This project is licensed under the terms of the MIT license.
