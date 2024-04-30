@@ -6,8 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: producthunt
-    env_file:
-      - .env
     ports:
       - "8000:8000"
     volumes:
