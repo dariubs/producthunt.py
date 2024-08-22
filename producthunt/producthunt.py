@@ -116,3 +116,33 @@ class ProductHunt:
             })
         
         return product_list
+
+    def get_top_products_by_date(self, date):
+        query = f'''
+        query {{
+          posts(order: RANKING, postedAfter: "{date}T00:00:00Z", postedBefore: "{date}T23:59:59Z", first: 5) {{
+            edges {{
+              node {{
+                id
+                name
+                tagline
+                description
+                website
+              }}
+            }}
+          }}
+        }}
+        '''
+        data = fetch_data(query, self.api_key)
+        products = data.get('data', {}).get('posts', {}).get('edges', [])
+        
+        product_list = []
+        for edge in products:
+            product = edge.get('node', {})
+            product_list.append({
+                'ID': product.get('id'),
+                'Name': product.get('name'),
+                'Tagline': product.get('tagline'),
+            })
+        
+        return product_list
